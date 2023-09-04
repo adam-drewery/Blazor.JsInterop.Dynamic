@@ -7,6 +7,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageProjectUrl>https://github.com/adam-drewery/Blazor.JsInterop.Dynamic</PackageProjectUrl>
         <PackageVersion>0.0.1</PackageVersion>
+        <Authors>Adam Drewery</Authors>
         <PackageReleaseNotes>Library to simplify JS interop in Blazor.</PackageReleaseNotes>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
