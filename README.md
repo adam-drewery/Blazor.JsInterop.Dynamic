@@ -3,7 +3,7 @@
 
 ## Usage:
 
-Given the following simple javascript object:
+Given the following simple javascript function, which creates an object:
 
 ```js
 window.createTestObject = (testArg) => {
@@ -16,6 +16,16 @@ window.createTestObject = (testArg) => {
     funcTest: (testArg, testFunc) => {
       alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
       testFunc(testArg);
+    },
+    returnObjectTest: (testArg) => {
+      alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+      return {
+        someValue: 123,
+        actionTest: (testArg, testAction) => {
+          alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+          testAction();
+          }
+      };
     }
   }
 }
@@ -43,6 +53,17 @@ the object can be created and interacted with like so:
 
         // call a method with a "function" parameter
         reference.funcTest("example string 2", callbackFunc);
+
+        // calling a method that returns a javascript object, will return another reference here
+        var otherReference = await reference.returnObjectTest("example string 4");
+
+        // we can call methods on this new object too
+        await otherReference.actionTest("example string 5", callbackAction);
+
+        // and just like the first object, we can access properties
+        // note: these values are currently populated on object creation and won't update if the underlying object's property values change.
+        var someValue = otherReference.someValue;
+        Console.WriteLine("property on returned object: " + someValue);
     }
 }
 
