@@ -8,15 +8,18 @@
         <PackageProjectUrl>https://github.com/adam-drewery/Blazor.JsInterop.Dynamic</PackageProjectUrl>
         <PackageVersion>0.0.1</PackageVersion>
         <PackageReleaseNotes>Library to simplify JS interop in Blazor.</PackageReleaseNotes>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Script.js" />
-      <EmbeddedResource Include="Script.js" />
+        <None Remove="Script.js"/>
+        <EmbeddedResource Include="Script.js"/>
+        <None Include="../README.md" Pack="true" PackagePath="/"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.JSInterop" Version="7.0.10" />
+        <PackageReference Include="Microsoft.JSInterop" Version="7.0.10"/>
     </ItemGroup>
 
 </Project>
