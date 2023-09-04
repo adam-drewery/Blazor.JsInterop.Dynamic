@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.JsInterop.Dynamic", "Blazor.JsInterop.Dynamic\Blazor.JsInterop.Dynamic.csproj", "{EFA80C4E-800F-432F-AA93-F248B2536C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.JsInterop.Dynamic.TestApp", "Blazor.JsInterop.Dynamic.TestApp\Blazor.JsInterop.Dynamic.TestApp.csproj", "{97250431-8E26-4851-9DCF-7C7C4A97D33D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFA80C4E-800F-432F-AA93-F248B2536C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA80C4E-800F-432F-AA93-F248B2536C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA80C4E-800F-432F-AA93-F248B2536C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA80C4E-800F-432F-AA93-F248B2536C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97250431-8E26-4851-9DCF-7C7C4A97D33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97250431-8E26-4851-9DCF-7C7C4A97D33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97250431-8E26-4851-9DCF-7C7C4A97D33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97250431-8E26-4851-9DCF-7C7C4A97D33D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
