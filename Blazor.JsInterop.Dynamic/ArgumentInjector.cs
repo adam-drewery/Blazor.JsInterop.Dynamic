@@ -33,7 +33,7 @@ internal static class ArgumentInjector
                     Params = callbackInstance
                 };
             }
-            if(arg is ScriptObject jsObject)
+            if(arg is DynamicJsObject jsObject)
             {
                 Console.WriteLine("injecting object reference: " + jsObject.Reference);
                 args[i] = jsObject.Reference;

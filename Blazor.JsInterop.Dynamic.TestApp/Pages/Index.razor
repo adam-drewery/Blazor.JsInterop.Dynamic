@@ -8,11 +8,11 @@
     private async Task ShowDialog()
     {
         var objectReference = await JsRuntime.InvokeAsync<IJSObjectReference>("createTestObject", "example string  1");
-        var dynamicReference = await ScriptObject.CreateAsync(JsRuntime, objectReference);
-        var callbackAction = () => Console.WriteLine("callback action called");
-        var callbackFunc = (string x) => Console.WriteLine("callback func called with argument: " + x);
-        
-        dynamicReference.actionTest("example string 2", callbackAction);
-        dynamicReference.funcTest("example string 2", callbackFunc);
+        var dynamicReference = await DynamicJsObject.CreateAsync(JsRuntime, objectReference);
+        void CallbackAction() => Console.WriteLine("callback action called");
+        void CallbackFunc(string x) => Console.WriteLine("callback func called with argument: " + x);
+
+        dynamicReference.actionTest("example string 2", (Action?)CallbackAction);
+        dynamicReference.funcTest("example string 2", (Action<string>)CallbackFunc);
     }
 }

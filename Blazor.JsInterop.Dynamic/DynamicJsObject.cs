@@ -4,7 +4,7 @@ using Microsoft.JSInterop;
 
 namespace Blazor.JsInterop.Dynamic;
 
-public sealed class ScriptObject : DynamicObject, IAsyncDisposable
+public sealed class DynamicJsObject : DynamicObject, IAsyncDisposable
 {
     private readonly IJSRuntime _runtime;
     private static bool _initialized;
@@ -13,7 +13,7 @@ public sealed class ScriptObject : DynamicObject, IAsyncDisposable
 
     internal IJSObjectReference Reference { get; }
 
-    private ScriptObject(IJSRuntime runtime, IJSObjectReference reference, Dictionary<string, object>? dictionary = null)
+    private DynamicJsObject(IJSRuntime runtime, IJSObjectReference reference, Dictionary<string, object>? dictionary = null)
     {
         _runtime = runtime;
         Reference = reference;
@@ -29,12 +29,12 @@ public sealed class ScriptObject : DynamicObject, IAsyncDisposable
         }
                 
             
-        return new ScriptObject(runtime, objectReference);
+        return new DynamicJsObject(runtime, objectReference);
     }
 
     private static Task LoadUtilityScript(IJSRuntime runtime)
     {
-        var assembly = typeof(ScriptObject).Assembly;
+        var assembly = typeof(DynamicJsObject).Assembly;
         var fullResourceName = $"{assembly.GetName().Name}.Script.js";
             
         using var stream = assembly.GetManifestResourceStream(fullResourceName);
@@ -80,7 +80,7 @@ public sealed class ScriptObject : DynamicObject, IAsyncDisposable
         if (unwrapped.Value.ValueKind == JsonValueKind.Object)
         {
             var dictionary = unwrapped.Value.Deserialize<Dictionary<string, object>>();
-            return new ScriptObject(_runtime, jsObjectReference, dictionary);
+            return new DynamicJsObject(_runtime, jsObjectReference, dictionary);
         }
             
         return unwrapped.Value.ValueKind switch
