@@ -11,7 +11,13 @@
         var callbackAction = () => Console.WriteLine("callback action called");
         var callbackFunc = (string x) => Console.WriteLine("callback func called with argument: " + x);
 
-        reference.actionTest("example string 2", callbackAction);
-        reference.funcTest("example string 2", callbackFunc);
+        await reference.actionTest("example string 2", callbackAction);
+        await reference.funcTest("example string 3", callbackFunc);
+
+        var otherReference = await reference.returnObjectTest("example string 4");
+        await otherReference.actionTest("example string 5", callbackAction);
+        var someValue = otherReference.someValue;
+        Console.WriteLine("property on returned object: " + someValue);
+
     }
 }

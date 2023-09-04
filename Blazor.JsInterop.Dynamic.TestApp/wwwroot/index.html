@@ -22,6 +22,16 @@
                 funcTest: (testArg, testFunc) => {
                     alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
                     testFunc(testArg);
+                },
+                returnObjectTest: (testArg) => {
+                    alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                    return {
+                        someValue: 123,
+                        actionTest: (testArg, testAction) => {
+                            alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                            testAction();
+                        }
+                    };
                 }
             }
         }
