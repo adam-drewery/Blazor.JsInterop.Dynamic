@@ -4,17 +4,20 @@
 
 <button style="width: 100%; font-size: xxx-large" @onclick="ShowDialog">Run Tests</button>
 
-<div>
-    <h2 style="font-family: monospace">.NET Logs</h2>
-    @foreach (var log in _logs)
-    {
-        <h4 style="font-family: monospace">@log</h4>
-    }
-</div>
-<div id="js-logs">
-    <h2 style="font-family: monospace">Javascript Logs</h2>
-</div>
-
+<table width="100%">
+	<tr>
+		<td>
+			<h2 style="font-family: monospace">.NET Logs</h2>
+			@foreach (var log in _logs)
+			{
+				<h4 style="font-family: monospace">@log</h4>
+			}
+		</td>
+		<td id="js-logs">
+			<h2 style="font-family: monospace">Javascript Logs</h2>
+		</td>
+	</tr>
+</table>
 
 
 @code {
