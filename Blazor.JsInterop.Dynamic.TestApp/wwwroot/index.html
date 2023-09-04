@@ -19,9 +19,13 @@
                     alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
                     testAction();
                 },
-                funcTest: (testArg, testFunc) => {
+                actionWithArgumentTest: (testArg, testFunc) => {
                     alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
                     testFunc(testArg);
+                },
+                funcTest: (testArg) => {
+                    alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                    return testArg * 12;
                 },
                 returnObjectTest: (testArg) => {
                     alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);

@@ -4,20 +4,30 @@
 
 <button style="width: 100%; height: 100%" @onclick="ShowDialog">Show Dialog</button>
 
+@foreach(var log in _logs)
+{
+    <h6 style="font-family: monospace">@log</h6>
+}
+
 @code {
+
+    IList<string> _logs = new List<string>();
+
     private async Task ShowDialog()
     {
         var reference = await JsRuntime.InvokeAsync("createTestObject", "example string  1");
-        var callbackAction = () => Console.WriteLine("callback action called");
-        var callbackFunc = (string x) => Console.WriteLine("callback func called with argument: " + x);
-
-        await reference.actionTest("example string 2", callbackAction);
-        await reference.funcTest("example string 3", callbackFunc);
-
+        
+        await reference.actionTest("example string 2", new Action(() => _logs.Add("callback action called")));
+        
+        await reference.actionWithArgumentTest("example string 3", new Action<string>(x => _logs.Add("callback action called with argument: " + x)));
+        
+        var funcResult = await reference.funcTest(12);
+        _logs.Add("func result: " + funcResult);
+        
         var otherReference = await reference.returnObjectTest("example string 4");
-        await otherReference.actionTest("example string 5", callbackAction);
+        await otherReference.actionTest("example string 5", new Action(() => _logs.Add("callback action called from child object")));
+        
         var someValue = otherReference.someValue;
-        Console.WriteLine("property on returned object: " + someValue);
-
+        _logs.Add("property on returned object: " + someValue);
     }
 }
