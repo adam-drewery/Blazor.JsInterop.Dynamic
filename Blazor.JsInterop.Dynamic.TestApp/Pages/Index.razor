@@ -2,15 +2,17 @@
 
 @inject IJSRuntime JsRuntime
 
-<button @onclick="ShowDialog">Show Dialog</button>
+<button style="width: 100%; height: 100%" @onclick="ShowDialog">Show Dialog</button>
 
 @code {
     private async Task ShowDialog()
     {
         var objectReference = await JsRuntime.InvokeAsync<IJSObjectReference>("createTestObject", "example string  1");
         var dynamicReference = await ScriptObject.CreateAsync(JsRuntime, objectReference);
-        var callbackFunction = () => Console.WriteLine("callback function called");
+        var callbackAction = () => Console.WriteLine("callback action called");
+        var callbackFunc = (string x) => Console.WriteLine("callback func called with argument: " + x);
         
-        dynamicReference.testMethod("example string 2", callbackFunction);
+        dynamicReference.actionTest("example string 2", callbackAction);
+        dynamicReference.funcTest("example string 2", callbackFunc);
     }
 }

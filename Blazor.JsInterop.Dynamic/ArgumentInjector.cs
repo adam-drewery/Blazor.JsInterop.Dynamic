@@ -46,7 +46,7 @@ internal static class ArgumentInjector
         var assembly = typeof(ActionCallback).Assembly;
         var callbackTypeName = isFunc 
             ? $"Blazor.JsInterop.Dynamic.FuncCallback\u0060{numberOfArgs}" 
-            : numberOfArgs == 0 ? "Blazor.JsInterop.Dynamic.ActionCallback" : $"Blazor.InterOptimal.ActionCallback\u0060{numberOfArgs}";
+            : numberOfArgs == 0 ? "Blazor.JsInterop.Dynamic.ActionCallback" : $"Blazor.JsInterop.Dynamic.ActionCallback\u0060{numberOfArgs}";
 
         return assembly.GetType(callbackTypeName) ?? throw new InvalidOperationException($"No callback type found for {callbackTypeName}");
     }
