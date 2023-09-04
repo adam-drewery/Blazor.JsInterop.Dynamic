@@ -13,31 +13,40 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script>
         window.createTestObject = (testArg) => {
-            alert("I've invoked a javascript global method from .NET with this parameter: " + testArg);
+            log("creating test object with argument: " + testArg);
             return {
                 actionTest: (testArg, testAction) => {
-                    alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                    log("invoking instance action: " + testArg);
                     testAction();
                 },
                 actionWithArgumentTest: (testArg, testFunc) => {
-                    alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                    log("invoking instance action with argument: " + testArg);
                     testFunc(testArg);
                 },
                 funcTest: (testArg) => {
-                    alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                    log("invoking instance function with argument: " + testArg);
                     return testArg * 12;
                 },
                 returnObjectTest: (testArg) => {
-                    alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                    log("returning child object with argument: " + testArg);
                     return {
                         someValue: 123,
                         actionTest: (testArg, testAction) => {
-                            alert("I've invoked a javascript instance method from .NET with this parameter: " + testArg);
+                            log("invoking action on child object: " + testArg);
                             testAction();
                         }
                     };
                 }
             }
+        }
+        
+        function log(message) {
+            const divElement = document.getElementById("js-logs");
+            const h6Element = document.createElement("h4");
+            h6Element.style.fontFamily = "monospace";
+            h6Element.textContent = message;
+            divElement.appendChild(h6Element);
+
         }
     </script>
 </body>
