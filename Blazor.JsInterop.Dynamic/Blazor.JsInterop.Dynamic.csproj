@@ -4,6 +4,10 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageProjectUrl>https://github.com/adam-drewery/Blazor.JsInterop.Dynamic</PackageProjectUrl>
+        <PackageVersion>0.0.1</PackageVersion>
+        <PackageReleaseNotes>Library to simplify JS interop in Blazor.</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
