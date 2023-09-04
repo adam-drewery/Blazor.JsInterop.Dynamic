@@ -9,7 +9,7 @@ public class DynamicJsRuntime : DynamicObject
     
     public DynamicJsRuntime(IJSRuntime runtime) => _runtime = runtime;
     
-    public async Task<dynamic> InvokeAsync(string identifier, object?[]? args)
+    public async Task<dynamic> InvokeAsync(string identifier, params object?[]? args)
     {
         var reference = await _runtime.InvokeAsync<IJSObjectReference>(identifier, args);
         return await DynamicJsObject.CreateAsync(_runtime, reference);

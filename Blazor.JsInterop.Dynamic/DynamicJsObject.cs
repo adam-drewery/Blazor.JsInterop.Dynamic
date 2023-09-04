@@ -20,7 +20,7 @@ public sealed class DynamicJsObject : DynamicObject, IAsyncDisposable
         _properties = dictionary ?? new Dictionary<string, object>();
     }
 
-    public static async Task<dynamic> CreateAsync(IJSRuntime runtime, IJSObjectReference objectReference)
+    internal static async Task<dynamic> CreateAsync(IJSRuntime runtime, IJSObjectReference objectReference)
     {
         if (!_initialized)
         {
