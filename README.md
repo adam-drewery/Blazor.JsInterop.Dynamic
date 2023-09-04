@@ -35,14 +35,14 @@ the object can be created and interacted with like so:
         var reference = await JsRuntime.InvokeAsync("createTestObject", "example string  1");
 
         // these can be passed as arguments to a javascript function and the callbacks will work correctly
-        void CallbackAction() => Console.WriteLine("callback action called");
-        void CallbackFunc(string x) => Console.WriteLine("callback func called with argument: " + x);
+        var callbackAction = () => Console.WriteLine("callback action called");
+        var callbackFunc = (string x) => Console.WriteLine("callback func called with argument: " + x);
 
         // call a method with an "action" parameter
-        reference.actionTest("example string 2", (Action?)CallbackAction);
+        reference.actionTest("example string 2", callbackAction);
 
         // call a method with a "function" parameter
-        reference.funcTest("example string 2", (Action<string>)CallbackFunc);
+        reference.funcTest("example string 2", callbackFunc);
     }
 }
 
