@@ -3,7 +3,7 @@ using Microsoft.JSInterop;
 
 namespace Blazor.JsInterop.Dynamic;
 
-public class DynamicJsRuntime : DynamicObject
+public class DynamicJsRuntime
 {
     private readonly IJSRuntime _runtime;
     

@@ -5,10 +5,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <RepositoryUrl>https://github.com/adam-drewery/Blazor.JsInterop.Dynamic</RepositoryUrl>
         <PackageProjectUrl>https://github.com/adam-drewery/Blazor.JsInterop.Dynamic</PackageProjectUrl>
-        <PackageVersion>0.0.1</PackageVersion>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>blazor jsinterop</PackageTags>
+        <PackageVersion>0.0.2</PackageVersion>
         <Authors>Adam Drewery</Authors>
-        <PackageReleaseNotes>Library to simplify JS interop in Blazor.</PackageReleaseNotes>
+        <Description>Library to simplify JS interop in Blazor.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
