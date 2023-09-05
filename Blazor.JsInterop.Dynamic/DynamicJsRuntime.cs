@@ -1,4 +1,3 @@
-using System.Dynamic;
 using Microsoft.JSInterop;
 
 namespace Blazor.JsInterop.Dynamic;
