@@ -39,8 +39,6 @@ window.xa6dd4ca4880643aa86eb9d18af009fc3 = async function(instance, methodName, 
         console.log("executing internal function: " + instance + "." + methodName + "(" + processedArgs + ")");
         let result = instance[methodName](...processedArgs);
         
-        if (!result) return { x04f665b3ad2c47a3a02b181a447bd82f: function() { return null } };
-
         // Check if result is a promise
         if (result instanceof Promise) {
             console.log("awaiting promise: " + typeof result)
