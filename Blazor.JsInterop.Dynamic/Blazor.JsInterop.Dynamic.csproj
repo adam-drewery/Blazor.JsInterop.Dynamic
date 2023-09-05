@@ -9,7 +9,7 @@
         <PackageProjectUrl>https://github.com/adam-drewery/Blazor.JsInterop.Dynamic</PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>blazor jsinterop</PackageTags>
-        <PackageVersion>0.0.2</PackageVersion>
+        <PackageVersion>0.0.3</PackageVersion>
         <Authors>Adam Drewery</Authors>
         <Description>Library to simplify JS interop in Blazor.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
